@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Example</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        #modal {
+            display: none; 
+        }
+        
+        
+        #modal:target {
+            display: flex; 
+            flex-wrap: wrap;
+            position: fixed; 
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            justify-content: center;
+            align-items: center;
+            
+        }
+    </style>
+</head>
+<body class="bg-cover bg-center bg-opacity-10 h-screen flex items-center justify-center" style="background-image: url('imgs/bg4.jpg');">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-6xl font-bold text-center mb-2">Sinks R Us</h1>
+        <p class="text-4x1 italic font-semibold text-center mb-10 ">Your one stop shop for all kinds of sinks.</p>
+    <div class="bg-white bg-opacity-30 shadow-md rounded-lg px-20 py-6  my-auto min-h-50"> 
+        <h2 class="text-2xl font-bold text-center mb-5">Welcome back!</h2>
+        <div class="flex justify-center">
+            <a href="#modal" class="bg-blue-800 text-white px-8 py-3 rounded-xl hover:bg-white hover:text-black">Sign In</a>
+        </div>
+    </div>
+
+     <div id="modal" class="flex justify-center items-center">
+        <div class="bg-blue-100 shadow-lg rounded-lg p-10 max-w-md mx-auto relative">
+            <h2 class="text-2xl font-semibold mb-4">Log in to your Account</h2>
+            <form>
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-1" for="email">Email</label>
+                    <input type="email" id="email" class="border rounded-lg w-full py-2 px-3" placeholder="Your Email" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-1" for="password">Password</label>
+                    <input type="password" id="password" class="border rounded-lg w-full py-2 px-3" placeholder="Your Password" required>
+                </div>
+                <button type="submit" class="bg-blue-800 text-white px-5 py-2 rounded-xl hover:bg-white hover:text-black">Log in</button>
+                <a href="#" class="block mt-4 text-center text-blue-800 hover:text-white">Cancel</a>
+            </form>
+        </div>
+     </div>
+</body>
+</html>
