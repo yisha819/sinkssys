@@ -23,6 +23,7 @@
             padding: 20px;
             border: 1px solid #888;
             width: 80%;
+            overflow: auto;
             border-radius: 10px;
             box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
         }
@@ -80,7 +81,7 @@
                     <td class="px-6 py-4 text-black">IT</td>
                     <td class="px-6 py-4 text-black">ivan.petrov@sinksrus.com</td>
                     <td class="px-6 py-4 text-right">
-                        <a href="#" class="flex font-medium text-center text-blue-600 dark:text-amber-500 hover:underline" onclick="showModal('Ivan Petrov', '555-6789', '12 Red Square, Moscow', 'Male', 'Single')">More</a>
+                        <a href="#" class="flex font-medium text-center text-blue-600 dark:text-amber-500 hover:underline" onclick="showModal('Ivan Petrov', 'Software Engineer', 'IT', 'ivan.petrov@sinksrus.com', '555-6789', '12 Red Square, Moscow', 'Male', 'Single')">More</a>
                     </td>
                 </tr>
                 <!-- Employee 2-->
@@ -90,7 +91,7 @@
                     <td class="px-6 py-4 text-black">Marketing</td>
                     <td class="px-6 py-4 text-black">pedro_los_banos@sinksrus.com</td>
                     <td class="px-6 py-4 text-right">
-                        <a href="#" class="flex font-medium text-center text-blue-600 dark:text-amber-500 hover:underline" onclick="showModal('Pedro Los Baños', '', '123 Mabini St', 'Male', 'Married')">More</a>
+                        <a href="#" class="flex font-medium text-center text-blue-600 dark:text-amber-500 hover:underline" onclick="showModal('Pedro Los Baños', 'Marketing Manager', 'Marketing', 'pedro_los_banos@sinksrus.com', '', '123 Mabini St', 'Male', 'Married')">More</a>
                     </td>
                 </tr>
                 <!-- Employee 3-->
@@ -100,7 +101,7 @@
                     <td class="px-6 py-4 text-black">HR</td>
                     <td class="px-6 py-4 text-black">ana.gomez@sinksrus.com</td>
                     <td class="px-6 py-4 text-right">
-                        <a href="#" class="flex font-medium text-center text-blue-600 dark:text-amber-500 hover:underline" onclick="showModal('Ana Gómez', '555-1526', '', 'Female', 'Divorced')">More</a>
+                        <a href="#" class="flex font-medium text-center text-blue-600 dark:text-amber-500 hover:underline" onclick="showModal('Ana Gómez', 'HR Specialist', 'HR', 'ana.gomez@sinksrus.com', '555-1526', '', 'Female', 'Divorced')">More</a>
                     </td>
                 </tr>
                 <!-- Employee 4-->
@@ -110,17 +111,17 @@
                     <td class="px-6 py-4 text-black">Sales</td>
                     <td class="px-6 py-4 text-black">john.wu@sinksrus.com</td>
                     <td class="px-6 py-4 text-right">
-                        <a href="#" class="flex font-medium text-center text-blue-600 dark:text-amber-500 hover:underline" onclick="showModal('John Wu', '555-6925', '456 Rizal St', 'Male', 'Single')">More</a>
+                        <a href="#" class="flex font-medium text-center text-blue-600 dark:text-amber-500 hover:underline" onclick="showModal('John Wu', 'Sales Associate', 'Sales', 'john.wu@sinksrus.com', '555-6925', '456 Rizal St', 'Male', 'Single')">More</a>
                     </td>
                 </tr>
                 <!-- Employee 5-->
                 <tr class="bg-white dark:bg-stone-50 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-indigo-50">
-                    <th scope="row" class="px-6 py-4 font-medium text-black whitespace-nowrap">Ivan Petrov</th>
+                    <th scope="row" class="px-6 py-4 font-medium text-black whitespace-nowrap">Emma Wilson</th>
                     <td class="px-6 py-4 text-black">CEO</td>
                     <td class="px-6 py-4 text-black">Admin</td>
                     <td class="px-6 py-4 text-black">emma@sinksrus.com</td>
                     <td class="px-6 py-4 text-right">
-                        <a href="#" class="flex font-medium text-center text-blue-600 dark:text-amber-500 hover:underline" onclick="showModal('Emma Wilson', '555-1111', '', 'Female', 'Married')">More</a>
+                        <a href="#" class="flex font-medium text-center text-blue-600 dark:text-amber-500 hover:underline" onclick="showModal('Emma Wilson', 'CEO', 'Admin', 'emma@sinksrus.com', '555-1111', '', 'Female', 'Married')">More</a>
                     </td>
                 </tr>
             </tbody>
@@ -134,6 +135,18 @@
         <span class="close" onclick="closeModal()">×</span>
         <h2 id="modalName"></h2>
         <table class="bg-stone-100 w-full text-sm text-left text-black-500 dark:text-black-400">
+            <tr>
+                <th class="px-6 py-3">Job Title</th>
+                <td class="px-6 py-3" id="modalJob_title"></td>
+            </tr>
+            <tr>
+                <th class="px-6 py-3">Department</th>
+                <td class="px-6 py-3" id="modalDepartment"></td>
+            </tr>
+            <tr>
+                <th class="px-6 py-3">Email</th>
+                <td class="px-6 py-3" id="modalEmail"></td>
+            </tr>
             <tr>
                 <th class="px-6 py-3">Contact Number</th>
                 <td class="px-6 py-3" id="modalContact"></td>
@@ -154,8 +167,11 @@
     </div>
 </div>
 <script>
-    function showModal(name, contact, address, sex, marital) {
+    function showModal(name, job_title, department, email, contact, address, sex, marital) {
         document.getElementById('modalName').innerText = name;
+        document.getElementById('modalJob_title').innerText = job_title;
+        document.getElementById('modalDepartment').innerText = department;
+        document.getElementById('modalEmail').innerText = email;
         document.getElementById('modalContact').innerText = contact;
         document.getElementById('modalAddress').innerText = address;
         document.getElementById('modalSex').innerText = sex;
